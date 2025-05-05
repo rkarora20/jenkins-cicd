@@ -50,7 +50,7 @@ pipeline {
             GIT_REPO_NAME = "jenkins-cicd"
             GIT_REPO_OWNER = "rkarora20"
             GIT_USER_NAME = "rkarora20"
-            GIT_USER_EMAIL = "rkarora20@example.com"
+            GIT_USER_EMAIL = "arora.rohit02@gmail.com"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
@@ -61,7 +61,7 @@ pipeline {
                     git add spring-boot-app-manifests/deployment.yml
                     git commit -m "Update deployment image to version $BUILD_NUMBER" || echo "No changes to commit"
                     git remote set-url origin https://${GIT_USER_NAME}:${GITHUB_TOKEN}@github.com/${GIT_REPO_OWNER}/${GIT_REPO_NAME}.git
-                    git push origin HEAD:main
+                    git push origin HEAD:master
                 """
             }
         }
